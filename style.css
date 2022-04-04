@@ -1,0 +1,178 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+  background-color: lightcyan;
+}
+
+.navigation__checkbox {
+  display: none;
+}
+
+.navigation__button {
+  /* You can choose any color you want */
+  background-color: white;
+  height: 7rem;
+  width: 7rem;
+  position: fixed;
+  top: 5rem;
+  right: 5rem;
+  border-radius: 50%;
+  z-index: 3000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer;
+}
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 5.5rem;
+  right: 5.5rem;
+  /* You can choose any two colors you want */
+  background-image: radial-gradient(#adb5bd, #495057);
+  z-index: 1000;
+  transition: transform 0.8s ease-in-out;
+}
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2000;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.navigation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+
+.navigation__link:link,
+.navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  /* You can choose any color you want */
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(
+    120deg,
+    transparent 0%,
+    transparent 50%,
+    /* You can choose any color you want */ white 50%
+  );
+  background-size: 220%;
+  transition: all 0.5s;
+}
+
+.navigation__link:hover,
+.navigation__link:active {
+  background-position: 100%;
+  /* You can choose any color you want */
+  color: #495057;
+  transform: translateX(1rem);
+}
+
+/* Functionality */
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(100);
+}
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%;
+}
+
+/* Icon */
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.navigation__icon,
+.navigation__icon::after,
+.navigation__icon::before {
+  width: 3rem;
+  height: 2px;
+  /* You can choose any color you want */
+  background-color: #495057;
+  display: inline-block;
+}
+
+.navigation__icon::after,
+.navigation__icon::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+}
+.navigation__icon::after {
+  top: 0.8rem;
+}
+.navigation__icon::before {
+  top: -0.8rem;
+}
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+.sec-1 {
+  text-align: center;
+  background-color: lightgray;
+  height: 100rem;
+}
+.sec-2 {
+  text-align: center;
+  background-color: lightgoldenrodyellow;
+  height: 100rem;
+}
+.sec-3 {
+  text-align: center;
+  background-color: lightseagreen;
+  height: 100rem;
+}
